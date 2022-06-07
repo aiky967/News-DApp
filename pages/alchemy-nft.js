@@ -27,7 +27,7 @@ export default function MyAssets() {
   }, [])
 
   const apiKey = process.env.alchemyApiKey;
-  const endpoint = `https://matic-mumbai.chainstacklabs.com/`;  
+  const endpoint = `https://matic-mumbai.chainstacklabs.com/${apiKey}`;  
 
   const getAddressNFTs = async (owner, contractAddress, retryAttempt) => {
       if (retryAttempt === 5) {
