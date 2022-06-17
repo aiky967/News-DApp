@@ -11,6 +11,7 @@ import {
 
 import NewsFeed from '../artifacts/contracts/NewsFeed.sol/NewsFeed.json';
 
+
 export default function CreatorDashboard() {
   const [videos, setVideos] = useState([])
   const [balanceval, setBalance] = useState([])
@@ -30,11 +31,11 @@ export default function CreatorDashboard() {
 
     let contract = new ethers.Contract(marketplaceAddress, NewsFeed.abi, signer)
     let balanceval = await contract.balance()
-    console.log(balanceval)
+    console.log("Balance: ", balanceval)
     balanceval = web3.utils.fromWei(balanceval.toString(), 'ether')
     setBalance(balanceval)
     setLoadingState('loaded') 
-    console.log(balanceval)
+    console.log("Balance: ", balanceval)
     
     const livepeerKey = process.env.alchemyApiKey
     const headers = {
@@ -44,7 +45,7 @@ export default function CreatorDashboard() {
     const response = await axios.get('https://livepeer.com/api/asset', {
         headers: headers
       })
-    console.log(response)
+    console.log("Livepeer response: ", response)
     for (let data of response.data){
     console.log(data.status);
     if (data.status==="ready"){
@@ -56,7 +57,7 @@ export default function CreatorDashboard() {
       break
 
     }
-    console.log(videos)
+    console.log("Videos: ", videos)
 }
   }
 
@@ -83,9 +84,9 @@ export default function CreatorDashboard() {
 
     let contract = new ethers.Contract(marketplaceAddress, NewsFeed.abi, signer)
     let ads = await contract.fetchAdds()
-    console.log(ads)
+    console.log("Ads: ", ads)
     let authorAdd = await contract.fetchAddsOwner(videos.name)
-    console.log(authorAdd)
+    console.log("Author add: ", authorAdd)
     setadvOwner(authorAdd)
     let boolPay = await contract.checkPayAuthor(authorAdd)
     return boolPay
@@ -105,8 +106,7 @@ export default function CreatorDashboard() {
       }else{
         console.log("Different author and viewer")
         let balance =payViewer(advOwner)
-        console.log("New balance")
-        console.log(balance)
+        console.log("New balance: ", balance)
       }
     }else{
       console.log("Same author and viewer")

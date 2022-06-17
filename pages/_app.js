@@ -1,6 +1,16 @@
 /* pages/_app.js */
 import '../styles/globals.css'
 import Link from 'next/link'
+import Router from 'next/router';
+
+const cors = require('cors');
+
+const corsOptions ={
+  origin: 'http:/localhost:3000',
+  credentials: true,
+  optionSuccessStatus: 200
+}
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -33,21 +43,21 @@ function MyApp({ Component, pageProps }) {
             </a>
           </Link>
           
-          <Link href="/alchemy-nft">
+          {/* <Link href="/alchemy-nft">
             <a className="mr-6 text-pink-500">
               Alchemy -Articles
             </a>
-          </Link>
+          </Link> */}
 
           <Link href="/video-upload">
             <a className="mr-6 text-pink-500">
-              Livepeer -Upload
+              Upload Ads
             </a>
           </Link>
 
           <Link href="/video-view">
             <a className="mr-6 text-pink-500">
-              Livepeer - View
+              View Ads
             </a>
           </Link>
           
@@ -56,6 +66,16 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </div>
   )
-}
+};
 
-export default MyApp
+// MyApp.use(cors(corsOptions));
+
+// Router.get("/video-view", (req, res) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.setHeader("Access-Control-Max-Age", "1800");
+//   res.setHeader("Access-Control-Allow-Headers", "content-type");
+//   res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+// });
+
+export default MyApp;

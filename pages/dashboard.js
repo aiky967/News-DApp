@@ -1,6 +1,5 @@
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import Web3Modal from 'web3modal'
 import Web3 from 'web3'
 
@@ -82,7 +81,7 @@ export default function CreatorDashboard() {
         <h2 className="text-2xl py-2">Items Listed</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
                   
-                  <p className="text-2xl font-bold text-black">Balance - {balanceval} Eth</p>
+                  <p className="text-2xl font-bold text-black">Balance - {balanceval} Matic</p>
                 
         </div>
          <button onClick={DepositVal} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">

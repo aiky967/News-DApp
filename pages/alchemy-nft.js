@@ -24,7 +24,7 @@ export default function MyAssets() {
   useEffect(() => {
     fetchNFTs()
     loadNFTs()
-  }, [])
+  }, []);
 
   const apiKey = process.env.alchemyApiKey;
   const endpoint = `https://matic-mumbai.chainstacklabs.com/${apiKey}`;  

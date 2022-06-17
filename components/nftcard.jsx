@@ -31,4 +31,4 @@ const NftCard = ({ image, id, title, address, description, attributes }) => {
     )
 }
 
-export default NftCard
+export default NftCard;

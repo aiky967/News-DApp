@@ -3,7 +3,6 @@ import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
-import { Web3Storage } from 'web3.storage'
 import axios from 'axios'
 import Web3 from 'web3'
 
@@ -88,7 +87,7 @@ export default function CreateItem() {
     let listingPrice = await contract.getListingPrice()
     let name = formInput.name
     listingPrice = listingPrice.toString()
-    console.log(listingPrice)
+    console.log("Listing price", listingPrice)
     let transaction = await contract.createAdd(url, name, { value: listingPrice })
     await transaction.wait()
 
@@ -100,7 +99,7 @@ export default function CreateItem() {
     await transaction2.wait()
     let balanceval = await contract.balance()
     balanceval = web3.utils.fromWei(balanceval.toString(), 'ether')
-    console.log(balanceval)
+    console.log("Balance: ", balanceval)
    
     router.push('/video-view')
   }

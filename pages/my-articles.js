@@ -2,7 +2,6 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
-import { useNavigate } from "react-router-dom"
 import Web3 from 'web3'
 
 import {
@@ -122,4 +121,4 @@ export default function MyArticles() {
   </div>
 </div>
     )
-}
+};
